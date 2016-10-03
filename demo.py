@@ -1,5 +1,7 @@
 from py4j.java_gateway import JavaGateway
+from py4j.java_gateway import GatewayParameters
 
+gateway = JavaGateway(GatewayParameters(auto_field=True))
 wrapper = gateway.entry_point.getWrapper()
 test  = wrapper.parse1tweet('RT @DjBlack_Pearl: wat muhfuckaz wearin 4 the lingerie party?????')
 
