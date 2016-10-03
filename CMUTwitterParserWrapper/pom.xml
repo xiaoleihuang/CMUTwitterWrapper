@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.cu.boulder.xiaolei</groupId>
+  <artifactId>CMUTwitterParserWrapper</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <description>A wrapper for CMU twitter parser</description>
+  
+	<dependencies>
+	  	<!-- https://mvnrepository.com/artifact/net.sf.py4j/py4j -->
+		<dependency>
+		    <groupId>net.sf.py4j</groupId>
+		    <artifactId>py4j</artifactId>
+		    <version>0.10.3</version>
+		</dependency>
+		<!-- Twitter Parser -->
+		<dependency>
+			<groupId>edu.cmu.cs.lti</groupId>
+			<artifactId>ark-tweet-nlp</artifactId>
+			<scope>system</scope>
+			<version>0.3.2</version>
+			<systemPath>${basedir}/lib/ark-tweet-nlp-0.3.2.jar</systemPath>
+		</dependency>
+	</dependencies>
+  
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>edu.cu.boulder.xiaolei.parser.ParserWrapperEntryPoint</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.6</version>
+		        <configuration>
+		          <descriptorRefs>
+		            <descriptorRef>jar-with-dependencies</descriptorRef>
+		          </descriptorRefs>
+		        </configuration>
+		        <executions>
+					<execution>
+					  <id>make-assembly</id> <!-- this is used for inheritance merges -->
+					  <phase>package</phase> <!-- bind to the packaging phase -->
+					  <goals>
+					    <goal>single</goal>
+					  </goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
