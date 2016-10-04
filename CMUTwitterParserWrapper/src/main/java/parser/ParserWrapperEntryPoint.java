@@ -8,22 +8,32 @@ import py4j.GatewayServer;
  * @author xiaolei
  */
 public class ParserWrapperEntryPoint {
-	private ParserWrapper wrapper;
+	private ParserWrapper parserwrapper;
+	private TokenizerWrapper tokenizewrapper;
 	
 	/**
 	 * Initialize
 	 * @throws IOException 
 	 */
 	public ParserWrapperEntryPoint() throws IOException{
-		wrapper = new ParserWrapper();
+		parserwrapper = new ParserWrapper();
+		tokenizewrapper = new TokenizerWrapper();
 	}
 	
 	/**
-	 * Return the wrapper
+	 * Return the parser wrapper
 	 * @return wrapper of parser
 	 */
-	public ParserWrapper getWrapper(){
-		return wrapper;
+	public ParserWrapper getParserWrapper(){
+		return this.parserwrapper;
+	}
+	
+	/**
+	 * Return the tokenizer wrapper
+	 * @return wrapper of tokenizer
+	 */
+	public TokenizerWrapper getTokenizerWrapper(){
+		return this.tokenizewrapper;
 	}
 	
 	public static void main(String[] args) throws IOException {
