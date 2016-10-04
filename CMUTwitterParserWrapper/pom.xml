@@ -5,6 +5,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <description>A wrapper for CMU twitter parser</description>
   
+  <repositories>
+  	<repository>
+  		<id>in-project</id>
+  		<name>In project repo</name>
+  		<url>file://${basedir}/mylibs/</url>
+  	</repository>
+  </repositories>
 	<dependencies>
 	  	<!-- https://mvnrepository.com/artifact/net.sf.py4j/py4j -->
 		<dependency>
@@ -14,11 +21,9 @@
 		</dependency>
 		<!-- Twitter Parser -->
 		<dependency>
-			<groupId>edu.cmu.cs.lti</groupId>
-			<artifactId>ark-tweet-nlp</artifactId>
-			<scope>system</scope>
-			<version>0.3.2</version>
-			<systemPath>${basedir}/lib/ark-tweet-nlp-0.3.2.jar</systemPath>
+		    <groupId>com.mylib</groupId>
+		    <artifactId>mylib</artifactId>
+		    <version>1.0</version>
 		</dependency>
 	</dependencies>
   
@@ -30,7 +35,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>edu.cu.boulder.xiaolei.parser.ParserWrapperEntryPoint</mainClass>
+							<mainClass>parser.ParserWrapperEntryPoint</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -42,6 +47,11 @@
 		          <descriptorRefs>
 		            <descriptorRef>jar-with-dependencies</descriptorRef>
 		          </descriptorRefs>
+		          <archive>
+		          	<manifest>
+		          		<mainClass>parser.ParserWrapperEntryPoint</mainClass>
+		          	</manifest>
+		          </archive>
 		        </configuration>
 		        <executions>
 					<execution>
